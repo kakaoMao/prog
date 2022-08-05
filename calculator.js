@@ -1,14 +1,11 @@
-let firstNum
-let secNum
-let operation
-let result
+
 
 //console.log(`First number = ${firstNum}, First number type = ${typeof(firstNum)}`)
 
 function dataValidate(firstNum, secNum, operation) { 
                                                         // В данной функции, если мы точно знаем, что в firstNum будут введены буквы, 
-                                                        // можно быть уверенным, что в переменной firstNum будет лежать NaN, так как мы приводим буквы
-                                                        // к цифрам функцией Number(). 
+                                                        // можно быть уверенным, что в переменной firstNum будет лежать NaN, 
+                                                        // так как мы приводим буквы к цифрам функцией Number(). 
                                                         // !NaN = true, значит мы можем ориентироваться на  проверку 
                                                         // !firstNum == true. Это будет давать нам понимание, что лежит в firstNum
                                                         // если !firstNum = true значит там лежит NaN
@@ -16,18 +13,18 @@ function dataValidate(firstNum, secNum, operation) {
     if (firstNum === '' || Boolean(firstNum) == false ) {  
         console.log(`First number are not supplied or supplied wrong. First number type: ${typeof(firstNum)}, ${firstNum}`)
     }
-    else if (secNum == '' ) { 
+    else if (secNum == '' || Boolean(secNum) == false) { 
         console.log('Second number are not supplied')
     }
     else if (operation == '' ) { 
         console.log('Operation are not supplied')
     }
-    else return 0
+    else return true
 }
 
 function compute(firstNum, secNum, operation) {
     
-    let a = (dataValidate(firstNum, secNum, operation) == 0) ? 'successfil' : 'failed'
+    let a = (dataValidate(firstNum, secNum, operation)) ? 'successfil' : 'failed' 
     console.log(`Data validate result is ${a}`)
 
     if (operation == '+') {
@@ -41,7 +38,7 @@ function compute(firstNum, secNum, operation) {
     }
     else if (operation == '*') {
         result = +firstNum * +secNum
-        console.log(`${firstNum} + ${secNum} = ${result}`)
+        console.log(`${firstNum} * ${secNum} = ${result}`)
     }
     else if (operation == '/') {
         result = +firstNum / +secNum
@@ -70,14 +67,21 @@ function compute(firstNum, secNum, operation) {
 
 }
 
-function calculator(){
+function calculator() {
 
-    firstNum = Number(prompt('Введите первое число:'))
-    secNum = prompt('Введите второе число:')
-    operation = prompt('Введите операцию:')
+    let equation = {}
 
-    if (dataValidate(firstNum, secNum, operation) == 0) {
-        compute(firstNum, secNum, operation)
+    equation['firstNum'] = Number(prompt('Введите первое число:'))
+    equation['secNum'] = Number(prompt('Введите второе число:'))
+    equation['operation'] = prompt('Введите операцию:')
+
+
+    // firstNum = Number(prompt('Введите первое число:'))
+    // secNum = Number(prompt('Введите второе число:'))
+    // operation = prompt('Введите операцию:')
+
+    if (dataValidate(equation.firstNum, equation.secNum, equation.operation)) {
+        compute(equation.firstNum, equation.secNum, equation.operation)
         // console.log(`${firstNum} + ${secNum} = ${result}`) Строка нужна в случае использования
     }   //                                                    второго варианта реализации подсчета operation 
     else console.log(`Wrong data supplied`)
@@ -102,27 +106,26 @@ function calculator(){
 
 
 
-function userAuth(userLogin, userPassword) {  
-    
-    let userLogin
-    let userPassword
+function userAuth() {  
 
-    userLogin = prompt('Введите логин', 'Admin') ?? 'Admin'
+    let userData = {}
 
-    if (userLogin == 'Admin'){
+    userData['userLogin'] = prompt('Введите логин', 'Admin')
+
+    if (userData.userLogin == 'Admin'){
         // console.log(`User ${userLogin} exist`)
-        userPassword = prompt('Введите пароль', 'Я главный') ?? 'Я главный'
+        userData['userPassword'] = prompt('Введите пароль', 'Я главный') ?? 'Я главный'
 
-            if (userPassword == 'Я главный'){
+            if (userData.userPassword == 'Я главный'){
             console.log('Здравствуйте!')
             getApp()
             }
-            else if (userPassword == undefined || userPassword == '') {
+            else if (userData.userPassword == undefined || userData.userPassword == '') {
                 console.log('Ввод пароля отменен')
             }
             else console.log('Неверный пароль')
     }
-        else if (userLogin == undefined || userLogin == '') {
+        else if (userData.userLogin == undefined || userData.userLogin == '') {
         console.log('Ввод логина отменен')
     }
         else console.log(`Я вас не знаю`)
@@ -130,12 +133,13 @@ function userAuth(userLogin, userPassword) {
 }
 
 function getApp () {
-    let app = prompt('Выберите приложение: Калькулятор, Простые числа') 
-    if (app == 'Калькулятор') {
+
+    let app = prompt('Выберите приложение: Калькулятор, Простые числа') ?? 'Calc'
+    if (app == 'Калькулятор' || app == 'Calculator' || app == 'Calc' || app == '1') {
         console.log('You chose calculator')
         calculator()
     }
-    else if (app == 'Простые числа') {
+    else if (app == 'Простые числа' || app == 'Simple numbers' || app == 'Simp' || app == '2')  {
         console.log('You chose simple numbers')
         simpleNumbers()
     }
@@ -168,4 +172,49 @@ function simpleNumbers() {
     }
     else console.log(`Wrong data supplied`)
 }
-userAuth()
+
+let salaries = {
+    'max':100,
+    'text':'this is text',
+    'nastya':150,
+    'dog':200,
+    salarySum() {
+        for (let i in this){
+            if (typeof this[i] == 'number'){
+                console.log(`${i} salary is ${this[i]}`)
+            }
+        }
+    },
+    salaryDouble() {
+        for (let i in this){
+            if (typeof this[i] == 'number'){
+                console.log(`${i} doubled salary is ${this[i] * 2}`)
+            }
+        }    
+    }
+}
+
+
+function checkObject(param) {
+
+    let b = 0
+
+    for (i in param){
+        console.log(param[i], i)
+        if (typeof param[i] == 'number'){
+            //b += Number(param[i])
+            
+            param[i] = param[i] * 2
+            console.log(param[i])
+        } 
+
+    }
+    //console.log(`Total salary is ${b}`)
+    
+}
+
+checkObject(salaries)
+
+//userAuth()
+
+//calculator()
