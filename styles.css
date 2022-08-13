@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+}
+
+.item {
+    padding: 40px;
+    font-size: 25px;
+   border: 1px solid black; 
+}
+
+.item_1 {
+    
+}
+
+.item_2 {
+    
+}

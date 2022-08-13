@@ -80,3 +80,7 @@ function Accumulator(startingValue) {
     this.value += +prompt("Enter number")
   }
 }
+
+
+const fst = document.querySelector('button');
+
