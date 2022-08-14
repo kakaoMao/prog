@@ -1,0 +1,39 @@
+.item {
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.rootContainer {
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.leftContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.numbersContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 2em);
+    grid-gap: 10px;
+    
+} 
+
+.buttonsContainer {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 2em);
+    grid-gap: 10px;
+    
+} 
+
+.computeButton {
+    width: 8.7em;
+}
+
+
