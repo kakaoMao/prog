@@ -12,29 +12,29 @@
   <div class="rootContainer">
     <div class="leftContainer">
         <div class="numbersContainer">
-            <button onclick="compute.numInput('1')" class="item item_1">1</button>
-            <button onclick="compute.numInput('2')" class="item item_2">2</button>
-            <button onclick="compute.numInput('3')" class="item item_3">3</button>
-            <button onclick="compute.numInput('4')" class="item item_4">4</button>
-            <button onclick="compute.numInput('5')" class="item item_5">5</button>
-            <button onclick="compute.numInput('6')" class="item item_6">6</button>
-            <button onclick="compute.numInput('7')" class="item item_7">7</button>
-            <button onclick="compute.numInput('8')" class="item item_8">8</button>
-            <button onclick="compute.numInput('9')" class="item item_9">9</button>
+            <button onclick="calculator.numInput('1')" class="item item_1">1</button>
+            <button onclick="calculator.numInput('2')" class="item item_2">2</button>
+            <button onclick="calculator.numInput('3')" class="item item_3">3</button>
+            <button onclick="calculator.numInput('4')" class="item item_4">4</button>
+            <button onclick="calculator.numInput('5')" class="item item_5">5</button>
+            <button onclick="calculator.numInput('6')" class="item item_6">6</button>
+            <button onclick="calculator.numInput('7')" class="item item_7">7</button>
+            <button onclick="calculator.numInput('8')" class="item item_8">8</button>
+            <button onclick="calculator.numInput('9')" class="item item_9">9</button>
         </div>
         <div class="buttonsContainer">
-          <button onclick="compute.btnInput('+')" class="item item_plus">+</button>
-          <button onclick="compute.btnInput('-')" class="item item_minus">-</button>
-          <button onclick="compute.btnInput('*')" class="item item_3">*</button>
-          <button onclick="compute.btnInput('/')" class="item item_4">/</button>
-          <button onclick="compute.btnInput('**')" class="item item_5">**</button>
-          <button onclick="compute.result()" class="item computeButton">Compute</button>
+          <button onclick="calculator.btnInput('+')" class="item item_plus">+</button>
+          <button onclick="calculator.btnInput('-')" class="item item_minus">-</button>
+          <button onclick="calculator.btnInput('*')" class="item item_3">*</button>
+          <button onclick="calculator.btnInput('/')" class="item item_4">/</button>
+          <button onclick="calculator.btnInput('**')" class="item item_5">**</button>
+          <button onclick="calculator.calculate()" class="item calculatorButton">Calculate</button>
       </div>  
     </div>
     <div class="rightContainer">
         <div class="item item_enteredNumbers">entered numbers</div>
-        <div class="item item_2">result</div>
-        <div class="item item_3">previous actions</div>
+        <div class="item item_result">result</div>
+        <div class="item item_previous_actions">previous actions</div>
     </div>
 </div>
 <script src="calculator.js"></script>
