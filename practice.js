@@ -19,8 +19,6 @@ let ask2 = (question, yes, no) => {
 //   function() { alert("Вы отменили выполнение."); }
 // );
 
-
-
 // ladder
 
 let ladder = {
@@ -78,6 +76,7 @@ function Accumulator(startingValue) {
   this.value = startingValue
   this.read = function () {
     this.value += +prompt("Enter number")
+    console.log(`Current value is: ${this.value}`)
   }
 }
 

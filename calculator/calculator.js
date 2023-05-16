@@ -3,7 +3,7 @@
 // console.log(first);
 // console.log((first)[0].innerText);
 
-let numberFinished = Symbol('numberFinished')
+const numberFinished = Symbol('numberFinished')
 
 let calculator = {
     
